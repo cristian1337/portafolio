@@ -182,8 +182,7 @@
 
 	const frames = 140;
 	const currentFrame = (index) => {
-		const base = import.meta.env.BASE_URL;
-		return `${base}/hero_secuence/compressed_web_${String(index).padStart(5, "0")}.webp`;
+		return `/hero_secuence/compressed_web_${String(index).padStart(5, "0")}.webp`;
 	};
 
 	const images = [];
