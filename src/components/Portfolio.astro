@@ -1,0 +1,459 @@
+---
+import portfoilioImg from "../assets/561shots_so.png";
+---
+
+<section id="portfolio-mask">
+    <img
+    id="hero-key-background"
+    src={portfoilioImg.src}
+    class="w-full h-full object-cover"
+  />
+</section>
+<section id="projects" class="projects-section">
+	<div class="projects-header">
+		<div class="header-content">
+			<p class="header-description">
+				I design responsive websites using no-code platforms like Wix, WordPress, and Framer—ideal for portfolios, e-commerce, and blogs.
+			</p>
+		</div>
+	</div>
+
+	<div class="projects-container">
+		<div class="section-header">
+			<h3 class="section-title">Featured Websites</h3>
+			<a href="#all-sites" class="view-all">
+				All Sites
+				<svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M5 12h14M12 5l7 7-7 7"/>
+				</svg>
+			</a>
+		</div>
+
+		<div class="projects-grid">
+			<!-- Project Card 1 -->
+			<article class="project-card">
+				<div class="card-header">
+					<span class="year">2025</span>
+					<h4 class="project-name">TT Partners</h4>
+				</div>
+				<div class="card-image">
+					<img src="/portafolio.svg" alt="TT Partners Website" />
+				</div>
+				<div class="card-footer">
+					<span class="category">Agency</span>
+					<a href="#" class="live-link">
+						<span>Live Site</span>
+						<svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<circle cx="12" cy="12" r="10"/>
+							<line x1="2" y1="12" x2="22" y2="12"/>
+							<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+						</svg>
+					</a>
+				</div>
+			</article>
+
+			<!-- Project Card 2 -->
+			<article class="project-card">
+				<div class="card-header">
+					<span class="year">2025</span>
+					<h4 class="project-name">TigreTigre</h4>
+				</div>
+				<div class="card-image">
+					<img src="/portafolio.svg" alt="TigreTigre Restaurant" />
+				</div>
+				<div class="card-footer">
+					<span class="category">Restaurant</span>
+					<a href="#" class="live-link">
+						<span>Live Site</span>
+						<svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<circle cx="12" cy="12" r="10"/>
+							<line x1="2" y1="12" x2="22" y2="12"/>
+							<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+						</svg>
+					</a>
+				</div>
+			</article>
+
+			<!-- Project Card 3 -->
+			<article class="project-card">
+				<div class="card-header">
+					<span class="year">2025</span>
+					<h4 class="project-name">Dave | Portfolio</h4>
+				</div>
+				<div class="card-image">
+					<img src="/portafolio.svg" alt="Dave Portfolio" />
+				</div>
+				<div class="card-footer">
+					<span class="category">Portfolio</span>
+					<a href="#" class="live-link">
+						<span>Live Site</span>
+						<svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<circle cx="12" cy="12" r="10"/>
+							<line x1="2" y1="12" x2="22" y2="12"/>
+							<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+						</svg>
+					</a>
+				</div>
+			</article>
+
+			<!-- Project Card 4 -->
+			<article class="project-card">
+				<div class="card-header">
+					<span class="year">2025</span>
+					<h4 class="project-name">Sky Media Partners</h4>
+				</div>
+				<div class="card-image">
+					<img src="/portafolio.svg" alt="Sky Media Partners" />
+				</div>
+				<div class="card-footer">
+					<span class="category">Business</span>
+					<a href="#" class="live-link">
+						<span>Live Site</span>
+						<svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<circle cx="12" cy="12" r="10"/>
+							<line x1="2" y1="12" x2="22" y2="12"/>
+							<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+						</svg>
+					</a>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
+
+<style>
+  #portfolio-mask {
+    background: white;
+    mask-image: url("/portafolio.svg");
+    mask-position: center 60%;
+    mask-repeat: no-repeat;
+    mask-size: clamp(5800vh, 4000%, 0vh);
+    height: 150vh;
+  }
+
+  /* Projects Section */
+  .projects-section {
+    min-height: 100vh;
+    background: black;
+    padding: 6rem 2rem 8rem;
+    position: relative;
+    margin-top: -50vh;
+    z-index: 10;
+  }
+
+  /* Header */
+  .projects-header {
+    max-width: 1400px;
+    margin: 0 auto 5rem;
+    text-align: center;
+  }
+
+  .header-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .header-title {
+    font-family: "kulture", sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .header-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Projects Container */
+  .projects-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Section Header */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-family: "kulture", sans-serif;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .view-all {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #8b5cf6;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .view-all:hover {
+    gap: 0.75rem;
+    color: #a78bfa;
+  }
+
+  .arrow-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .view-all:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+
+  /* Projects Grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  /* Project Card */
+  .project-card {
+    background: rgba(15, 15, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .project-card:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    transform: translateY(-8px);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(139, 92, 246, 0.15),
+      inset 0 0 20px rgba(139, 92, 246, 0.05);
+  }
+
+  /* Card Header */
+  .card-header {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .year {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .project-name {
+    font-family: "kulture", sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  /* Card Image */
+  .card-image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    margin: 0 1rem;
+    border-radius: 12px;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-card:hover .card-image img {
+    transform: scale(1.05);
+  }
+
+  /* Card Footer */
+  .card-footer {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .category {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+  }
+
+  .live-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .live-link:hover {
+    color: #8b5cf6;
+  }
+
+  .globe-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .live-link:hover .globe-icon {
+    transform: scale(1.1);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .projects-section {
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    .projects-header {
+      margin-bottom: 3rem;
+    }
+
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/all";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Portfolio mask animation
+  gsap.to("#portfolio-mask", {
+    scrollTrigger: {
+      trigger: "#portfolio-mask",
+      start: "top bottom",
+      end: "30%",
+      scrub: 1,
+    },
+    maskSize: "clamp(35vh, 40%, 45vh)",
+    ease: "none",
+  });
+
+  gsap.fromTo(".header-description",
+    {
+      y: 30,
+      autoAlpha: 0
+    },
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.8,
+      delay: 0.4,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".projects-header",
+        start: "top 80%",
+      }
+    }
+  );
+
+  // Section header animations
+  gsap.fromTo(".section-header",
+    {
+      y: 30,
+      autoAlpha: 0
+    },
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".section-header",
+        start: "top 85%",
+      }
+    }
+  );
+
+  // Animate project cards with stagger
+  const projectCards = document.querySelectorAll('.project-card');
+
+  projectCards.forEach((card, index) => {
+    gsap.fromTo(card,
+      {
+        y: 80,
+        autoAlpha: 0
+      },
+      {
+        y: 0,
+        autoAlpha: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          end: "top 60%",
+          scrub: 1,
+        }
+      }
+    );
+
+    // Animate card content on hover
+    const cardImage = card.querySelector('.card-image');
+    const cardFooter = card.querySelector('.card-footer');
+
+    card.addEventListener('mouseenter', () => {
+      gsap.to(cardImage, {
+        y: -5,
+        duration: 0.4,
+        ease: "power2.out"
+      });
+
+      gsap.to(cardFooter, {
+        y: -3,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(cardImage, {
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out"
+      });
+
+      gsap.to(cardFooter, {
+        y: 0,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+  });
+</script>

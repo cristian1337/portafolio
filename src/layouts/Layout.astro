@@ -1,0 +1,364 @@
+---
+import '../styles/global.css';
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Animaciones con Gsap</title>
+    </head>
+    <body class="bg-black">
+        <!-- Loader -->
+        <div id="page-loader" class="loader-container">
+            <div class="loader-content">
+                <div class="loader-circle">
+                    <svg class="loader-svg" viewBox="0 0 100 100">
+                        <circle class="loader-ring" cx="50" cy="50" r="45" />
+                        <circle class="loader-progress" cx="50" cy="50" r="45" />
+                    </svg>
+                    <div class="loader-icon">
+                        <span class="code-symbol">&lt;/&gt;</span>
+                    </div>
+                </div>
+                <div class="loader-text">
+                    <h2 class="loader-title">Loading Experience</h2>
+                    <div class="loader-percentage">
+                        <span id="loader-percent">0</span>%
+                    </div>
+                    <div class="loader-bar-container">
+                        <div id="loader-bar" class="loader-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <slot />
+    </body>
+</html>
+
+<style>
+    .loader-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+        overflow: hidden;
+    }
+
+    .loader-container::before {
+        content: '';
+        position: absolute;
+        top: -300px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 600px;
+        background: #3B82F6;
+        border-radius: 50%;
+        filter: blur(150px);
+        opacity: 0.4;
+        animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 0.3;
+            transform: translateX(-50%) scale(1);
+        }
+        50% {
+            opacity: 0.5;
+            transform: translateX(-50%) scale(1.1);
+        }
+    }
+
+    .loader-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .loader-circle {
+        position: relative;
+        width: 150px;
+        height: 150px;
+    }
+
+    .loader-svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+    }
+
+    .loader-ring,
+    .loader-progress {
+        fill: none;
+        stroke-width: 3;
+        stroke-linecap: round;
+    }
+
+    .loader-ring {
+        stroke: rgba(255, 255, 255, 0.1);
+    }
+
+    .loader-progress {
+        stroke: url(#gradient);
+        stroke-dasharray: 283;
+        stroke-dashoffset: 283;
+        transition: stroke-dashoffset 0.3s ease;
+    }
+
+    .loader-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.1);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        animation: rotate 3s linear infinite;
+    }
+
+    @keyframes rotate {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
+    .code-symbol {
+        font-family: 'Courier New', monospace;
+        font-size: 2rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+    }
+
+    .loader-text {
+        text-align: center;
+        color: white;
+    }
+
+    .loader-title {
+        font-family: "kulture", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: linear-gradient(45deg, #fff, #3B82F6, #667eea);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient 3s ease infinite;
+    }
+
+    @keyframes gradient {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+
+    .loader-percentage {
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: 'Courier New', monospace;
+        margin-bottom: 1rem;
+        color: #3B82F6;
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+
+    .loader-bar-container {
+        width: 300px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .loader-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #3B82F6, #667eea, #3B82F6);
+        background-size: 200% 100%;
+        border-radius: 10px;
+        transition: width 0.3s ease;
+        animation: shimmer 2s linear infinite;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    }
+
+    @keyframes shimmer {
+        0% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .loader-circle {
+            width: 120px;
+            height: 120px;
+        }
+
+        .loader-icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        .code-symbol {
+            font-size: 1.5rem;
+        }
+
+        .loader-title {
+            font-size: 1.2rem;
+        }
+
+        .loader-percentage {
+            font-size: 1.5rem;
+        }
+
+        .loader-bar-container {
+            width: 250px;
+        }
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+
+    // Add SVG gradient definition
+    const loaderSvg = document.querySelector('.loader-svg');
+    if (loaderSvg) {
+        const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+        gradient.setAttribute('id', 'gradient');
+        gradient.setAttribute('x1', '0%');
+        gradient.setAttribute('y1', '0%');
+        gradient.setAttribute('x2', '100%');
+        gradient.setAttribute('y2', '0%');
+
+        const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+        stop1.setAttribute('offset', '0%');
+        stop1.setAttribute('style', 'stop-color:#3B82F6;stop-opacity:1');
+
+        const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+        stop2.setAttribute('offset', '100%');
+        stop2.setAttribute('style', 'stop-color:#667eea;stop-opacity:1');
+
+        gradient.appendChild(stop1);
+        gradient.appendChild(stop2);
+        defs.appendChild(gradient);
+        loaderSvg.appendChild(defs);
+    }
+
+    // Image loading logic
+    const images: HTMLImageElement[] = [];
+    let loadedImages = 0;
+    let totalImages = 0;
+
+    // Get all images to load
+    function getAllImages() {
+        // Load canvas sequence images (140 frames)
+        const frames = 140;
+        totalImages = frames + 1; // +1 for portfolio image
+
+        for (let i = 0; i < frames; i++) {
+            const img = new Image();
+            img.src = `/secuencia/web_${String(i).padStart(5, "0")}.png`;
+            images.push(img);
+
+            img.onload = () => {
+                loadedImages++;
+                updateProgress();
+            };
+
+            img.onerror = () => {
+                loadedImages++;
+                updateProgress();
+            };
+        }
+
+        // Load portfolio image
+        const portfolioImg = new Image();
+        portfolioImg.src = '/portafolio.svg';
+        images.push(portfolioImg);
+
+        portfolioImg.onload = () => {
+            loadedImages++;
+            updateProgress();
+        };
+
+        portfolioImg.onerror = () => {
+            loadedImages++;
+            updateProgress();
+        };
+    }
+
+    function updateProgress() {
+        const percent = Math.round((loadedImages / totalImages) * 100);
+        const percentElement = document.getElementById('loader-percent');
+        const progressBar = document.getElementById('loader-bar');
+        const progressCircle = document.querySelector('.loader-progress') as SVGCircleElement;
+
+        if (percentElement) {
+            percentElement.textContent = percent.toString();
+        }
+
+        if (progressBar) {
+            progressBar.style.width = `${percent}%`;
+        }
+
+        if (progressCircle) {
+            const circumference = 2 * Math.PI * 45;
+            const offset = circumference - (percent / 100) * circumference;
+            progressCircle.style.strokeDashoffset = offset.toString();
+        }
+
+        if (loadedImages >= totalImages) {
+            setTimeout(hideLoader, 500);
+        }
+    }
+
+    function hideLoader() {
+        const loader = document.getElementById('page-loader');
+
+        if (loader) {
+            gsap.to(loader, {
+                autoAlpha: 0,
+                duration: 0.8,
+                ease: "power2.inOut",
+                onComplete: () => {
+                    loader.style.display = 'none';
+                }
+            });
+        }
+    }
+
+    // Start loading
+    getAllImages();
+</script>

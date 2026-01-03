@@ -1,0 +1,416 @@
+---
+---
+
+<section class="contact-section" id="contact">
+	<div class="contact-background-text">CONTACTO</div>
+
+	<div class="contact-container">
+		<div class="contact-form-wrapper">
+			<h2 class="contact-title">Connect with me</h2>
+
+			<form class="contact-form">
+				<div class="form-row">
+					<div class="form-group">
+						<label for="firstName">First name <span class="required">*</span></label>
+						<input
+							type="text"
+							id="firstName"
+							name="firstName"
+							placeholder="First name"
+							required
+						/>
+					</div>
+
+					<div class="form-group">
+						<label for="lastName">Last name</label>
+						<input
+							type="text"
+							id="lastName"
+							name="lastName"
+							placeholder="Last name"
+						/>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group">
+						<label for="email">Email <span class="required">*</span></label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							placeholder="Email"
+							required
+						/>
+					</div>
+
+					<div class="form-group">
+						<label for="phone">Phone</label>
+						<div class="phone-input">
+							<select class="country-code">
+								<option value="+1">🇺🇸</option>
+								<option value="+52">🇲🇽</option>
+								<option value="+34">🇪🇸</option>
+								<option value="+44">🇬🇧</option>
+								<option value="+49">🇩🇪</option>
+							</select>
+							<input
+								type="tel"
+								id="phone"
+								name="phone"
+								placeholder="Phone"
+							/>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label>Your Requirement</label>
+					<div class="requirements-grid">
+						<button type="button" class="requirement-btn active">Website</button>
+						<button type="button" class="requirement-btn">Graphics</button>
+						<button type="button" class="requirement-btn">Video</button>
+						<button type="button" class="requirement-btn">3D</button>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="message">How can I help?</label>
+					<textarea
+						id="message"
+						name="message"
+						rows="5"
+						placeholder="Feel free to outline your ideas or needs..."
+					></textarea>
+				</div>
+
+				<button type="submit" class="submit-btn">Submit</button>
+			</form>
+		</div>
+	</div>
+</section>
+
+<style>
+	.contact-section {
+		min-height: 100vh;
+		background: black;
+		padding: 8rem 2rem;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.contact-background-text {
+		position: absolute;
+		top: 15%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-family: "kulture", sans-serif;
+		font-size: clamp(4rem, 12vw, 10rem);
+		font-weight: 900;
+		color: rgba(255, 255, 255, 0.15);
+		letter-spacing: 0.1em;
+		white-space: nowrap;
+		z-index: 0;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	.contact-container {
+		max-width: 700px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 1;
+	}
+
+	.contact-form-wrapper {
+		background: rgba(0, 0, 0, 0.5);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
+		padding: 2.5rem 2rem;
+		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.contact-form-wrapper:hover {
+		border-color: rgba(59, 130, 246, 0.3);
+		box-shadow:
+			0 0 30px rgba(59, 130, 246, 0.2),
+			0 0 60px rgba(59, 130, 246, 0.1),
+			inset 0 0 20px rgba(59, 130, 246, 0.05);
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	.contact-title {
+		font-family: "kulture", sans-serif;
+		font-size: 1rem;
+		color: white;
+		margin-bottom: 1rem;
+		font-weight: 100;
+		position: relative;
+		padding-bottom: 0.75rem;
+	}
+
+	.contact-title::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 40px;
+		height: 2px;
+		background: #3B82F6;
+	}
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.form-group label {
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	.required {
+		color: #3B82F6;
+	}
+
+	.form-group input,
+	.form-group textarea {
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
+		padding: 0.875rem 1rem;
+		color: white;
+		font-size: 0.95rem;
+		transition: all 0.3s ease;
+	}
+
+	.form-group input::placeholder,
+	.form-group textarea::placeholder {
+		color: rgba(255, 255, 255, 0.3);
+	}
+
+	.form-group input:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: #3B82F6;
+		background: rgba(255, 255, 255, 0.08);
+		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+	}
+
+	.phone-input {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.country-code {
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
+		padding: 0.875rem 0.75rem;
+		color: white;
+		font-size: 1.2rem;
+		cursor: pointer;
+		width: 70px;
+		transition: all 0.3s ease;
+	}
+
+	.country-code:focus {
+		outline: none;
+		border-color: #3B82F6;
+		background: rgba(255, 255, 255, 0.08);
+	}
+
+	.phone-input input {
+		flex: 1;
+	}
+
+	.requirements-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0.75rem;
+	}
+
+	.requirement-btn {
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
+		padding: 0.75rem 1rem;
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 0.9rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.requirement-btn:hover {
+		background: rgba(255, 255, 255, 0.08);
+		border-color: rgba(255, 255, 255, 0.2);
+		color: white;
+	}
+
+	.requirement-btn.active {
+		background: rgba(59, 130, 246, 0.2);
+		border-color: #3B82F6;
+		color: white;
+	}
+
+	.form-group textarea {
+		resize: vertical;
+		min-height: 120px;
+	}
+
+	.submit-btn {
+		background: white;
+		color: #0a0a0f;
+		border: none;
+		border-radius: 12px;
+		padding: 1rem 2rem;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		margin-top: 1rem;
+	}
+
+	.submit-btn:hover {
+		background: rgba(255, 255, 255, 0.9);
+		transform: translateY(-2px);
+		box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+	}
+
+	.submit-btn:active {
+		transform: translateY(0);
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.contact-section {
+			padding: 4rem 1.5rem;
+		}
+
+		.contact-form-wrapper {
+			padding: 2rem 1.5rem;
+		}
+
+		.form-row {
+			grid-template-columns: 1fr;
+		}
+
+		.requirements-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.contact-background-text {
+			top: 5%;
+			font-size: clamp(3rem, 15vw, 10rem);
+		}
+	}
+</style>
+
+<script>
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/all";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	// Aggressive background text parallax animation (same as services)
+	gsap.fromTo(".contact-background-text",
+		{
+			y: 100,
+			opacity: 0.8
+		},
+		{
+			y: -200,
+			opacity: 0.05,
+			ease: "none",
+			scrollTrigger: {
+				trigger: ".contact-section",
+				start: "top bottom",
+				end: "bottom top",
+				scrub: 1
+			}
+		}
+	);
+
+	// Form wrapper animation (same as service cards)
+	gsap.fromTo(".contact-form-wrapper",
+		{
+			y: 80,
+			autoAlpha: 0
+		},
+		{
+			y: 0,
+			autoAlpha: 1,
+			duration: 1,
+			ease: "power3.out",
+			scrollTrigger: {
+				trigger: ".contact-form-wrapper",
+				start: "top 85%",
+				end: "top 60%",
+				scrub: 1
+			}
+		}
+	);
+
+	// Requirement buttons functionality
+	const requirementBtns = document.querySelectorAll('.requirement-btn');
+	requirementBtns.forEach(btn => {
+		btn.addEventListener('click', () => {
+			requirementBtns.forEach(b => b.classList.remove('active'));
+			btn.classList.add('active');
+		});
+	});
+
+	// Form submission
+	const contactForm = document.querySelector('.contact-form');
+	if (contactForm) {
+		contactForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+
+			// Get form data
+			const formData = new FormData(contactForm as HTMLFormElement);
+
+			// Here you would typically send the data to a server
+			console.log('Form submitted:', Object.fromEntries(formData));
+
+			// Show success animation
+			const submitBtn = document.querySelector('.submit-btn');
+			if (submitBtn) {
+				const originalText = submitBtn.textContent;
+				submitBtn.textContent = 'Sent!';
+
+				gsap.to(submitBtn, {
+					scale: 1.05,
+					duration: 0.2,
+					yoyo: true,
+					repeat: 1
+				});
+
+				setTimeout(() => {
+					submitBtn.textContent = originalText || 'Submit';
+					(contactForm as HTMLFormElement).reset();
+
+					// Reset active button to first requirement
+					requirementBtns.forEach(b => b.classList.remove('active'));
+					if (requirementBtns[0]) {
+						requirementBtns[0].classList.add('active');
+					}
+				}, 2000);
+			}
+		});
+	}
+</script>

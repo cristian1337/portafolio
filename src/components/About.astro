@@ -1,0 +1,97 @@
+---
+---
+
+<section class="about" id="nosotros">
+	<h2 class="about-text">
+		Con más de 3 años de experiencia, transformamos tu visión en activos digitales rentables. No nos limitamos a una sola herramienta: dominamos el código a medida (React.js) para proyectos complejos y plataformas E-commerce (Shopify/WooCommerce) para ventas ágiles. Tecnología moderna, aprendizaje constante y resultados que escalan tu negocio.
+	</h2>
+</section>
+
+<style>
+	.about {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 4rem 2rem;
+		background: black;
+	}
+
+	.about-text {
+		font-size: clamp(1.5rem, 3vw, 2.5rem);
+		line-height: 1.6;
+		max-width: 1200px;
+		color: white;
+		font-weight: 400;
+		margin: 0;
+	}
+</style>
+
+<script>
+	import { gsap } from "gsap";
+	import { SplitText, ScrollTrigger } from "gsap/all";
+
+	gsap.registerPlugin(SplitText);
+	gsap.registerPlugin(ScrollTrigger);
+
+	// About text animation with blue mask reveal
+	const splitAbout = new SplitText(".about-text", {
+		type: "lines"
+	});
+
+	// Create a parent wrapper for each line
+	splitAbout.lines.forEach((line, index) => {
+		// Create wrapper div
+		const wrapper = document.createElement('div');
+		wrapper.className = 'line-wrapper';
+		wrapper.style.overflow = 'hidden';
+		wrapper.style.position = 'relative';
+		wrapper.style.display = 'block';
+
+		// Insert wrapper before the line
+		line.parentNode.insertBefore(wrapper, line);
+
+		// Move line into wrapper
+		wrapper.appendChild(line);
+
+		// Create mask overlay
+		const mask = document.createElement('div');
+		mask.className = 'line-mask';
+		mask.style.position = 'absolute';
+		mask.style.top = '0';
+		mask.style.left = '0';
+		mask.style.width = '100%';
+		mask.style.height = '100%';
+		mask.style.backgroundColor = '#3B82F6';
+		mask.style.transformOrigin = 'left';
+		mask.style.zIndex = '2';
+
+		wrapper.appendChild(mask);
+
+		// Set line style
+		line.style.position = 'relative';
+		line.style.zIndex = '1';
+
+		// Calculate stagger delay for each line
+		const delay = index * 0.1;
+
+		// Animate mask on scroll with stagger
+		gsap.fromTo(mask,
+			{
+				scaleX: 1
+			},
+			{
+				scaleX: 0,
+				duration: 3,
+				ease: "power2.inOut",
+				scrollTrigger: {
+					trigger: wrapper,
+					start: `top ${80 - (index * 2)}%`,
+					end: `top ${50 - (index * 2)}%`,
+					scrub: true,
+					markers: false
+				}
+			}
+		);
+	});
+</script>

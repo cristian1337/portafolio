@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "kulture";
+    src: url("/fonts/kulture.otf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
