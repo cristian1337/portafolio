@@ -280,6 +280,7 @@ import '../styles/global.css';
     const images: HTMLImageElement[] = [];
     let loadedImages = 0;
     let totalImages = 0;
+    const base = import.meta.env.BASE_URL;
 
     // Get all images to load
     function getAllImages() {
@@ -289,7 +290,7 @@ import '../styles/global.css';
 
         for (let i = 0; i < frames; i++) {
             const img = new Image();
-            img.src = `/secuencia/web_${String(i).padStart(5, "0")}.png`;
+            img.src = `${base}hero_secuence/compressed_web_${String(i).padStart(5, "0")}.webp`;
             images.push(img);
 
             img.onload = () => {
@@ -305,7 +306,7 @@ import '../styles/global.css';
 
         // Load portfolio image
         const portfolioImg = new Image();
-        portfolioImg.src = '/portafolio.svg';
+        portfolioImg.src = `${base}portafolio.svg`;
         images.push(portfolioImg);
 
         portfolioImg.onload = () => {
