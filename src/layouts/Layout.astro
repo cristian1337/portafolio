@@ -290,7 +290,7 @@ import '../styles/global.css';
 
         for (let i = 0; i < frames; i++) {
             const img = new Image();
-            img.src = `${base}hero_secuence/compressed_web_${String(i).padStart(5, "0")}.webp`;
+            img.src = `${base}/hero_secuence/compressed_web_${String(i).padStart(5, "0")}.webp`;
             images.push(img);
 
             img.onload = () => {
@@ -306,7 +306,7 @@ import '../styles/global.css';
 
         // Load portfolio image
         const portfolioImg = new Image();
-        portfolioImg.src = `${base}portafolio.svg`;
+        portfolioImg.src = `${base}/portafolio.svg`;
         images.push(portfolioImg);
 
         portfolioImg.onload = () => {
